@@ -11,17 +11,19 @@
     "fix": "yarn run lint && yarn run format"
   },
   "dependencies": {
-    "@emotion/react": "^11.9.0",
-    "@emotion/styled": "^11.8.1",
-    "@mui/material": "^5.7.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.23.0",
+    "@typescript-eslint/parser": "^5.23.0",
     "@vitejs/plugin-react": "^1.3.0",
     "autoprefixer": "^10.4.7",
+    "eslint": "^8.15.0",
+    "eslint-plugin-react": "^7.29.4",
+    "eslint-plugin-react-hooks": "^4.5.0",
     "postcss": "^8.4.13",
     "prettier": "2.6.2",
     "tailwindcss": "^3.0.24",

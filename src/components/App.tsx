@@ -1,12 +1,11 @@
-import Button from '@mui/material/Button';
+import SearchBox from './SearchBox';
 
 const App = () => {
-
   return (
-    <div className="bg-red-700 h-screen	w-screen">
-      Hello world! 
+    <div className="h-screen w-screen">
+      <SearchBox />
     </div>
   );
-}
+};
 
 export default App;
