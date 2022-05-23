@@ -1,6 +1,6 @@
 import React, { memo, useCallback } from 'react';
-import { PosItem } from '../constants/enum';
-import useFetchJson from '../hooks/useFetchJson';
+import { PosItem } from '../../../constants/enum';
+import useFetchJson from '../../../hooks/useFetchJson';
 import ListItemSearch from './ListItemSearch';
 import ListSearch from './ListSearch';
 
@@ -15,7 +15,7 @@ const StopAreaList = ({ search, onClickItem }: IStopAreaList) => {
   const [datas, isLoading] = useFetchJson(SEARCH_STOP_URL + search);
 
   const handleClick = useCallback(
-    (e: React.MouseEvent<HTMLElement>) => {
+    (e: React.ChangeEvent<HTMLInputElement>) => {
       onClickItem((e.target as HTMLElement).dataset.id as string);
     },
     [onClickItem]

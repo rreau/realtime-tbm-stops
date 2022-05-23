@@ -6,4 +6,3 @@ export const hmsToSeconds = (duration: string): number => {
 export const secondsToHms = (seconds: number): string => {
   return new Date(seconds * 1000).toISOString().substring(11, 19);
 };
-

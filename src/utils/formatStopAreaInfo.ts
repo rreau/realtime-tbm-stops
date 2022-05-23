@@ -3,35 +3,35 @@ import getScheduleID from './getScheduleID';
 
 interface IResult {
   [key: string]: Array<{
-    direction: string;
+    destination: string;
     transport: string;
     idSchedule: string;
   }>;
 }
 
-const formatStopAreaInfo = (rawDatas: IformatStopAreaInfo) => {
-  const datas: IResult = {};
+const formatStopAreaInfo = (rawData: IformatStopAreaInfo) => {
+  const data: IResult = {};
 
-  for (const stopPoint of rawDatas.stopPoints) {
+  for (const stopPoint of rawData.stopPoints) {
     // Only TRAM and BUSES
     if (['TBC', 'TBT'].includes(stopPoint.id.split(':')[1]) === false) continue;
 
     const nameStop = stopPoint.name;
     const idStop = stopPoint.id.split(':').pop() as string;
-    if (!datas[nameStop]) datas[nameStop] = [];
+    if (!data[nameStop]) data[nameStop] = [];
 
     for (const route of stopPoint.routes) {
-      const data = {
-        direction: route.name,
+      const value = {
+        destination: route.name,
         transport: route.line.name,
         idSchedule: getScheduleID(idStop, route.line.name),
       };
 
-      datas[nameStop].push(data);
+      data[nameStop].push(value);
     }
   }
 
-  return datas;
+  return data;
 };
 
 export default formatStopAreaInfo;
