@@ -1,3 +1,4 @@
+import Loading from '@components/Loading';
 import { PosItem } from '@constants/enum';
 import { IformatStopAreaInfo } from '@constants/types';
 import useFetchJson from '@hooks/useFetchJson';
@@ -19,7 +20,7 @@ export const STOP_INFO_URL = 'https://ws.infotbm.com/ws/1.0/network/stoparea-inf
 const StopPointList = ({ id }: IStopPointList) => {
   const [rawDatas, isLoading] = useFetchJson(STOP_INFO_URL + id);
 
-  if (isLoading) return <>Chargement en cours...</>;
+  if (isLoading) return <Loading />;
 
   const datas = formatStopAreaInfo(rawDatas as unknown as IformatStopAreaInfo);
 

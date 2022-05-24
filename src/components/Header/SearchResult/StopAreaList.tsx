@@ -1,3 +1,4 @@
+import Loading from '@components/Loading';
 import useFetchJson from '@hooks/useFetchJson';
 import StopAreaItem from './StopAreaItem';
 
@@ -10,7 +11,7 @@ const SEARCH_STOP_URL = 'https://ws.infotbm.com/ws/1.0/get-schedule/';
 const StopAreaList = ({ search }: IStopAreaList) => {
   const [datas, isLoading] = useFetchJson(SEARCH_STOP_URL + search);
 
-  if (isLoading) return <>Chargement en cours...</>;
+  if (isLoading) return <Loading />;
 
   const elements = datas
     .filter((e: Record<string, string>) => e.type === 'stop_area')

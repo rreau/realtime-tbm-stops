@@ -6,6 +6,7 @@ import formatRealtimeInfo from '@utils/formatRealtimeInfo';
 import { StopPointContext } from '@contexts/StopPointListener';
 import WaitTimeRow from './WaitTimeRow';
 import WaitTimeTable from './WaitTimeTable';
+import Loading from '@components/Loading';
 
 interface IWaitTimeCard {
   line: string;
@@ -35,7 +36,7 @@ const WaitTimeCard = ({ line, destination, id }: IWaitTimeCard) => {
     console.log(stopPointTheme?.stopPoint);
   }, [stopPointTheme, destination, line, id]);
 
-  if (isLoading) return <>Chargement en cours...</>;
+  if (isLoading) return <Loading />;
 
   const data = formatRealtimeInfo(rawData as unknown as IformatRealtimeInfo);
   const dataSorted = data.sort((a, b) => hmsToSeconds(a.waittime) - hmsToSeconds(b.waittime));
