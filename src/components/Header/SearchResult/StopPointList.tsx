@@ -24,14 +24,14 @@ const StopPointList = ({ id }: IStopPointList) => {
   const datas = formatStopAreaInfo(rawDatas as unknown as IformatStopAreaInfo);
 
   return (
-    <div className="m-5 flex flex-col">
-      <div className="flex flex-col space-y-3">
+    <div className='m-5 flex flex-col'>
+      <div className='flex flex-col space-y-3'>
         {Object.keys(datas).map((key: string) => {
           const lengthData = datas[key].length;
           return (
             <div key={key}>
-              <span className="font-medium ml-1">{key}</span>
-              <div className="flex flex-col w-full text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+              <span className='font-medium ml-1'>{key}</span>
+              <div className='flex flex-col w-full text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white'>
                 {datas[key]
                   .sort((a, b) =>
                     `${a.transport} ${a.destination}`.localeCompare(

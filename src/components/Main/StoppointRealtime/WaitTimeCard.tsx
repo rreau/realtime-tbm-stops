@@ -41,9 +41,9 @@ const WaitTimeCard = ({ line, destination, id }: IWaitTimeCard) => {
   const dataSorted = data.sort((a, b) => hmsToSeconds(a.waittime) - hmsToSeconds(b.waittime));
 
   return (
-    <div className="flex flex-col m-5 border border-slate-500">
-      <button className="w-10 place-self-end" title="Close card" onClick={handleClose}>
-        <i className="fa-solid fa-xmark fa-2x text-red-700"></i>
+    <div className='flex flex-col m-5 border border-slate-500'>
+      <button className='w-10 place-self-end' title='Close card' onClick={handleClose}>
+        <i className='fa-solid fa-xmark fa-2x text-red-700'></i>
       </button>
       <WaitTimeTable key={line + destination} line={line} destination={destination}>
         {dataSorted.map((e: IElement) => (

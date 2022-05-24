@@ -12,7 +12,7 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="flex flex-col">
+    <header className='flex flex-col'>
       <Navbar onChangeSearch={onChangeSearch} />
       {search && <StopAreaList search={search} onClickItem={setStopArea} />}
       {stopArea && <StopPointList id={stopArea} />}

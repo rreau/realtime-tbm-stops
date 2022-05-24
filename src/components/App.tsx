@@ -33,7 +33,7 @@ const App = () => {
   );
 
   return (
-    <div className="h-screen w-screen">
+    <div className='h-screen w-screen'>
       <StopPointContext.Provider value={stopPointData}>
         <Header />
         <Main />

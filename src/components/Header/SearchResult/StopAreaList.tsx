@@ -18,7 +18,7 @@ const StopAreaList = ({ search }: IStopAreaList) => {
       return <StopAreaItem key={e.id} id={e.id} title={e.name} />;
     });
 
-  return <div className="flex flex-col w-full">{elements}</div>;
+  return <div className='flex flex-col w-full'>{elements}</div>;
 };
 
 export default StopAreaList;

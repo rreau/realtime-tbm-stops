@@ -24,13 +24,13 @@ const StopAreaItem = ({ id, title }: IStopAreaItem) => {
     <>
       <button data-id={id} className={css} onClick={handleClick}>
         {toggle ? (
-          <i className="fa-solid fa-caret-down pr-2"> </i>
+          <i className='fa-solid fa-caret-down pr-2'> </i>
         ) : (
-          <i className="fa-solid fa-caret-right pr-2"></i>
+          <i className='fa-solid fa-caret-right pr-2'></i>
         )}
         {title}
       </button>
-      <div className="flex flex-col">
+      <div className='flex flex-col'>
         {stopAreaID && <StopPointList key={stopAreaID} id={stopAreaID} />}
       </div>
     </>

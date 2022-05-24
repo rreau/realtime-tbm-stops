@@ -25,21 +25,21 @@ const SearchModal = ({ onClose }: ISearchModal) => {
 
   return createPortal(
     <div
-      className="fixed flex items-center justify-center top-0 left-0 w-full h-full z-50 bg-neutral-700 bg-opacity-30"
+      className='fixed flex items-center justify-center top-0 left-0 w-full h-full z-50 bg-neutral-700 bg-opacity-30'
       ref={ref}
       onClick={handleClose}
     >
-      <div className="flex flex-col p-4 w-8/12 h-3/4 bg-white rounded-lg shadow">
-        <div className="relative flex items-center mb-5">
-          <i className="fa-solid fa-magnifying-glass absolute pl-3"></i>
+      <div className='flex flex-col p-4 w-8/12 h-3/4 bg-white rounded-lg shadow'>
+        <div className='relative flex items-center mb-5'>
+          <i className='fa-solid fa-magnifying-glass absolute pl-3'></i>
           <input
-            className="w-full pl-10 input-primary"
-            placeholder="Search..."
+            className='w-full pl-10 input-primary'
+            placeholder='Search...'
             onChange={handleSearch}
             autoFocus
           />
         </div>
-        <div className="flex flex-col items-start overflow-auto">
+        <div className='flex flex-col items-start overflow-auto'>
           {search && <StopAreaList search={search} />}
         </div>
       </div>

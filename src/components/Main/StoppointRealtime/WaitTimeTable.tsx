@@ -8,10 +8,10 @@ interface IWaitTimeTable {
 
 const WaitTimeTable = ({ line, destination, children }: IWaitTimeTable) => {
   return (
-    <table className="m-2">
+    <table className='m-2'>
       <thead>
         <tr>
-          <th className="text-left" colSpan={3}>{`${line} > ${destination}`}</th>
+          <th className='text-left' colSpan={3}>{`${line} > ${destination}`}</th>
         </tr>
       </thead>
       <tbody>{children}</tbody>

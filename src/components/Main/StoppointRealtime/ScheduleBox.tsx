@@ -12,7 +12,7 @@ interface IScheduleBox {
 
 const ScheduleBox = ({ stopPoints }: IScheduleBox) => {
   return (
-    <div className="flex flex-wrap">
+    <div className='flex flex-wrap'>
       {stopPoints.map((e: IElement, i: number) => (
         <WaitTimeCard
           key={e.destination + e.id + i}

@@ -30,7 +30,7 @@ const WaitTimeRow = ({ destination, waittime, realtime, lastUpdate }: IWaitTimeR
 
   return (
     <tr>
-      <td className="p-3">&gt; {destination}</td>
+      <td className='p-3'>&gt; {destination}</td>
       <td className={`p-3 ${cssWaittime}`}>{remainingTime}</td>
       <td className={`p-3 ${cssRealtime}`}>{realtime ? 'Temps réel' : 'Temps estimé'}</td>
     </tr>
