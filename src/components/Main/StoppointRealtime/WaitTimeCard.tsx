@@ -1,9 +1,9 @@
 import { useCallback, useContext } from 'react';
-import { IformatRealtimeInfo } from '../../../constants/types';
-import useAutoFetchJson from '../../../hooks/useAutoFetchJson';
-import { hmsToSeconds } from '../../../utils/convertTime';
-import formatRealtimeInfo from '../../../utils/formatRealtimeInfo';
-import { StopPointContext } from '../../App';
+import { IformatRealtimeInfo } from '@constants/types';
+import useAutoFetchJson from '@hooks/useAutoFetchJson';
+import { hmsToSeconds } from '@utils/convertTime';
+import formatRealtimeInfo from '@utils/formatRealtimeInfo';
+import { StopPointContext } from '@components/App';
 import WaitTimeRow from './WaitTimeRow';
 import WaitTimeTable from './WaitTimeTable';
 

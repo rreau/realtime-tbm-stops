@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { hmsToSeconds, secondsToHms } from './../utils/convertTime';
+import { hmsToSeconds, secondsToHms } from '@utils/convertTime';
 import useDecrement from './useDecrement';
 
 const useCountdown = (waittime: string): string => {

@@ -1,4 +1,4 @@
-import useFetchJson from '../../../hooks/useFetchJson';
+import useFetchJson from '@hooks/useFetchJson';
 import StopAreaItem from './StopAreaItem';
 
 interface IStopAreaList {

@@ -1,7 +1,7 @@
-import { PosItem } from '../../../constants/enum';
-import { IformatStopAreaInfo } from '../../../constants/types';
-import useFetchJson from '../../../hooks/useFetchJson';
-import formatStopAreaInfo from '../../../utils/formatStopAreaInfo';
+import { PosItem } from '@constants/enum';
+import { IformatStopAreaInfo } from '@constants/types';
+import useFetchJson from '@hooks/useFetchJson';
+import formatStopAreaInfo from '@utils/formatStopAreaInfo';
 import StopPointItem from './StopPointItem';
 
 interface IStopPointList {

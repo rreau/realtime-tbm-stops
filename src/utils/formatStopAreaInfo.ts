@@ -1,4 +1,4 @@
-import { IformatStopAreaInfo } from '../constants/types';
+import { IformatStopAreaInfo } from '@constants/types';
 import getScheduleID from './getScheduleID';
 
 interface IResult {
