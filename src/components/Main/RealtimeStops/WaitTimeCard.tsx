@@ -28,12 +28,9 @@ const WaitTimeCard = ({ line, destination, id }: IWaitTimeCard) => {
   const stopPointTheme = useContext(StopPointContext);
 
   const handleClose = useCallback(() => {
-    console.log(stopPointTheme?.stopPoint);
-    console.log({ id: id, line: line, destination: destination });
     stopPointTheme?.setStopPoint((sp) =>
       sp.filter((e) => e.id !== id && e.line !== line && e.destination !== destination)
     );
-    console.log(stopPointTheme?.stopPoint);
   }, [stopPointTheme, destination, line, id]);
 
   if (isLoading) return <Loading />;
