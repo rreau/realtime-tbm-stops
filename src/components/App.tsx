@@ -3,9 +3,9 @@ import Header from './Header/Header';
 import Main from './Main/Main';
 
 interface IStopPointElement {
+  destination: string;
   id: string;
   line: string;
-  destination: string;
 }
 
 interface IStopPointContext {

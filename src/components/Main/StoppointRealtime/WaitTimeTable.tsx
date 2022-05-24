@@ -2,16 +2,16 @@ import { ReactElement } from 'react';
 
 interface IWaitTimeTable {
   line: string;
-  direction: string;
+  destination: string;
   children: ReactElement[];
 }
 
-const WaitTimeTable = ({ line, direction, children }: IWaitTimeTable) => {
+const WaitTimeTable = ({ line, destination, children }: IWaitTimeTable) => {
   return (
-    <table className="m-5 border border-slate-40 border-collapse">
+    <table className="m-2">
       <thead>
         <tr>
-          <th className="text-left" colSpan={3}>{`${line} > ${direction}`}</th>
+          <th className="text-left" colSpan={3}>{`${line} > ${destination}`}</th>
         </tr>
       </thead>
       <tbody>{children}</tbody>
