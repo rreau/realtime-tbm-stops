@@ -4,7 +4,6 @@ import Main from './Main/Main';
 import { StopPointListener } from '@contexts/StopPointListener';
 
 const App = () => {
-
   return (
     <div className='h-screen w-screen'>
       <StopPointListener>
