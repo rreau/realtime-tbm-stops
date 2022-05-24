@@ -8,9 +8,13 @@ interface IStopAreaItem {
 
 const StopAreaItem = ({ id, title }: IStopAreaItem) => {
   const [stopAreaID, setStopArea] = useState('');
+  const [toggle, setToggle] = useState(false);
 
   const handleClick = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
-    setStopArea((e.target as HTMLButtonElement).dataset.id as string);
+    setToggle((t) => {
+      setStopArea(!t ? ((e.target as HTMLButtonElement).dataset.id as string) : '');
+      return !t;
+    });
   }, []);
 
   const css =
@@ -19,7 +23,7 @@ const StopAreaItem = ({ id, title }: IStopAreaItem) => {
   return (
     <>
       <button data-id={id} className={css} onClick={handleClick}>
-        {stopAreaID ? (
+        {toggle ? (
           <i className="fa-solid fa-caret-down pr-2"> </i>
         ) : (
           <i className="fa-solid fa-caret-right pr-2"></i>
