@@ -1,6 +1,6 @@
 import { memo, useCallback, useContext } from 'react';
 import { PosItem } from '@constants/enum';
-import { StopPointContext } from '@components/App';
+import { StopPointContext } from '@contexts/StopPointListener';
 
 interface IStopPointItem {
   transport: string;

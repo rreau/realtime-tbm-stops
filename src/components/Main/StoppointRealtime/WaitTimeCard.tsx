@@ -3,7 +3,7 @@ import { IformatRealtimeInfo } from '@constants/types';
 import useAutoFetchJson from '@hooks/useAutoFetchJson';
 import { hmsToSeconds } from '@utils/convertTime';
 import formatRealtimeInfo from '@utils/formatRealtimeInfo';
-import { StopPointContext } from '@components/App';
+import { StopPointContext } from '@contexts/StopPointListener';
 import WaitTimeRow from './WaitTimeRow';
 import WaitTimeTable from './WaitTimeTable';
 

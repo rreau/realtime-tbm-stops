@@ -1,5 +1,5 @@
-import useCountdown from '../../../hooks/useCountdown';
-import { hmsToSeconds, secondsToHms } from '../../../utils/convertTime';
+import useCountdown from '@hooks/useCountdown';
+import { hmsToSeconds, secondsToHms } from '@utils/convertTime';
 
 interface IWaitTimeRow {
   destination: string;
