@@ -29,7 +29,12 @@ const WaitTimeCard = ({ line, destination, id }: IWaitTimeCard) => {
 
   const handleClose = useCallback(() => {
     stopPointTheme?.setStopPoint((sp) =>
-      sp.filter((e) => e.id !== id && e.line !== line && e.destination !== destination)
+      sp.filter(
+        (e) =>
+          e.id.localeCompare(id) ||
+          e.line.localeCompare(line) ||
+          e.destination.localeCompare(destination)
+      )
     );
   }, [stopPointTheme, destination, line, id]);
 
