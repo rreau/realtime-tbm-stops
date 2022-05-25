@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const useToggle = (defaultValue = false) => {
+const useToggle = (defaultValue = false): [boolean, () => void] => {
   const [state, setState] = useState(defaultValue);
 
   const toggle = () => {

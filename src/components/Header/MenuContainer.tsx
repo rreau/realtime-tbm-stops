@@ -1,12 +1,11 @@
-import { useCallback, useState } from 'react';
+import useToggle from '@hooks/useToggle';
+import { useCallback } from 'react';
 import MenuBookmarks from './MenuBookmarks';
 
 const MenuContainer = () => {
-  const [toggleBookmark, setToogle] = useState(false);
+  const [toggleBookmark, toggle] = useToggle(false);
 
-  const handleBookmarks = useCallback(() => {
-    setToogle((t) => !t);
-  }, []);
+  const handleBookmarks = useCallback(() => toggle(), [toggle]);
 
   return (
     <div
