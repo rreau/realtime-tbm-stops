@@ -2,6 +2,7 @@ interface IData {
   line: string;
   destination: string;
   id: string;
+  stopName: string;
 }
 
 const KEY = 'bookmarks';
@@ -25,7 +26,11 @@ export const addBookmarksItem = (data: IData) => {
 export const delBookmarksItem = (data: IData) => {
   const bookmarks = getBookmarks();
   const newBookmarks = bookmarks.filter(
-    (e: IData) => e.id !== data.id && e.line !== data.line && e.destination !== data.destination
+    (e: IData) =>
+      e.id.localeCompare(data.id) ||
+      e.line.localeCompare(data.line) ||
+      e.destination.localeCompare(data.destination) ||
+      e.stopName.localeCompare(data.stopName)
   );
 
   if (newBookmarks.length !== 0) setBookmarks(newBookmarks);
@@ -35,6 +40,12 @@ export const delBookmarksItem = (data: IData) => {
 export const checkItem = (data: IData) => {
   const bookmarks = getBookmarks();
   return bookmarks.some(
-    (e: IData) => e.id === data.id && e.line === data.line && e.destination === data.destination
+    (e: IData) =>
+      !(
+        e.id.localeCompare(data.id) ||
+        e.line.localeCompare(data.line) ||
+        e.destination.localeCompare(data.destination) ||
+        e.stopName.localeCompare(data.stopName)
+      )
   );
 };
