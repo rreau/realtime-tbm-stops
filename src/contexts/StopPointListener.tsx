@@ -18,13 +18,7 @@ interface IStopPointListener {
 export const StopPointContext = createContext<IStopPointContext | null>(null);
 
 export const StopPointListener = ({ children }: IStopPointListener) => {
-  const [stopPoint, setStopPoint] = useState([
-    {
-      id: '3737/B',
-      line: 'Tram B',
-      destination: 'BORDEAUX Berges de la Garonne / BORDEAUX Claveau',
-    },
-  ]);
+  const [stopPoint, setStopPoint] = useState<IStopPointElement[]>([]);
 
   const stopPointData = useMemo(
     () => ({

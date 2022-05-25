@@ -1,6 +1,5 @@
 import Header from './Header/Header';
 import Main from './Main/Main';
-
 import { StopPointListener } from '@contexts/StopPointListener';
 
 const App = () => {
