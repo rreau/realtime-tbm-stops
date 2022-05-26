@@ -29,7 +29,7 @@ const SearchModal = ({ onClose }: ISearchModal) => {
       ref={ref}
       onClick={handleClose}
     >
-      <div className='flex flex-col p-4 w-8/12 h-3/4 bg-white rounded-lg shadow'>
+      <div className='flex flex-col p-4 w-11/12 lg:w-8/12 h-3/4 bg-white rounded-lg shadow'>
         <div className='relative flex items-center mb-5'>
           <i className='fa-solid fa-magnifying-glass absolute pl-3'></i>
           <input
