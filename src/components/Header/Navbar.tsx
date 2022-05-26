@@ -1,6 +1,6 @@
 import useToggle from '@hooks/useToggle';
 import { useCallback, useState } from 'react';
-import MenuContainer from './MenuContainer';
+import MenuContainer from './Menu/MenuContainer';
 import SearchModal from './SearchModal';
 
 const Navbar = () => {
