@@ -1,13 +1,15 @@
+import useToggle from '@hooks/useToggle';
 import { useCallback, useState } from 'react';
 import MenuContainer from './MenuContainer';
 import SearchModal from './SearchModal';
 
 const Navbar = () => {
   const [isVisibleModal, setVisibleModal] = useState(false);
-  const [isVisibleMenu, setVisibleMenu] = useState(false);
+  const [isVisibleMenu, toggle] = useToggle();
 
   const onClickSearch = useCallback(() => setVisibleModal(true), []);
-  const handleMenu = useCallback(() => setVisibleMenu((v) => !v), []);
+  const handleMenu = useCallback(() => toggle(), [toggle]);
+  const handleLeave = useCallback(() => toggle(), [toggle]);
 
   return (
     <>
@@ -15,7 +17,7 @@ const Navbar = () => {
         <button className='m-5' onClick={handleMenu}>
           <i className='fa-solid fa-bars fa-2x' />
         </button>
-        {isVisibleMenu && <MenuContainer />}
+        {isVisibleMenu && <MenuContainer onMouseLeave={handleLeave}/>}
         <i className='fa-solid fa-hourglass fa-2x mr-3'></i>
         REALTIME <br /> STOP <br /> BORDEAUX
         <div className='relative flex-auto mx-8 flex items-center'>

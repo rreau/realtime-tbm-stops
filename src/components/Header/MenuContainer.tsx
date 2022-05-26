@@ -2,7 +2,11 @@ import useToggle from '@hooks/useToggle';
 import { useCallback } from 'react';
 import MenuBookmarks from './MenuBookmarks';
 
-const MenuContainer = () => {
+interface IMenuContainer {
+  onMouseLeave: () => void
+}
+
+const MenuContainer = ({onMouseLeave}: IMenuContainer) => {
   const [toggleBookmark, toggle] = useToggle(false);
 
   const handleBookmarks = useCallback(() => toggle(), [toggle]);
@@ -11,6 +15,7 @@ const MenuContainer = () => {
     <div
       className='fixed z-10 left-0 w-[266px] max-w-[266px] h-[calc(100%-76px)] bg-white shadow-xl'
       style={{ top: '76px' }}
+      onMouseLeave={onMouseLeave}
     >
       <div className='flex flex-col m-3'>
         <a href='https://www.infotbm.com/' className='flex items-center button-primary'>
