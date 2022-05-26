@@ -1,4 +1,4 @@
-import { memo, useCallback, useContext } from 'react';
+import { memo, useCallback, useContext, MouseEvent } from 'react';
 import { PosItem } from '@constants/enum';
 import { StopPointContext } from '@contexts/StopPointListener';
 
@@ -27,7 +27,7 @@ const StopPointItem = ({
   if (itemPosition === PosItem.ALONE) css += ' rounded-t-lg rounded-b-lg';
 
   const handleClick = useCallback(
-    (e: React.MouseEvent<HTMLElement>) => {
+    (e: MouseEvent<HTMLElement>) => {
       const target = e.target as HTMLElement;
       const id = target.dataset.id as string;
       const line = target.dataset.line as string;

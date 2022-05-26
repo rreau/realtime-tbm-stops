@@ -1,14 +1,14 @@
 import { IStopData } from '@constants/types';
 import { StopPointContext } from '@contexts/StopPointListener';
 import { getBookmarks } from '@utils/bookmarks';
-import { useCallback, useContext } from 'react';
+import { useCallback, useContext, MouseEvent } from 'react';
 
 const MenuBookmarks = () => {
   const stopPointTheme = useContext(StopPointContext);
   const elements = getBookmarks();
 
   const handleClick = useCallback(
-    (e: React.MouseEvent<HTMLElement>) => {
+    (e: MouseEvent<HTMLElement>) => {
       const id = (e.currentTarget as HTMLButtonElement).dataset.id as string;
       const line = (e.currentTarget as HTMLButtonElement).dataset.line as string;
       const destination = (e.currentTarget as HTMLButtonElement).dataset.destination as string;

@@ -1,5 +1,5 @@
 import useToggle from '@hooks/useToggle';
-import { memo, useCallback, useState } from 'react';
+import { memo, useCallback, useState, MouseEvent } from 'react';
 import StopPointList from './StopPointList';
 
 interface IStopAreaItem {
@@ -12,7 +12,7 @@ const StopAreaItem = ({ id, title }: IStopAreaItem) => {
   const [toggleState, toggle] = useToggle(false);
 
   const handleClick = useCallback(
-    (e: React.MouseEvent<HTMLButtonElement>) => {
+    (e: MouseEvent<HTMLButtonElement>) => {
       setStopArea(!toggleState ? ((e.target as HTMLButtonElement).dataset.id as string) : '');
       toggle();
     },

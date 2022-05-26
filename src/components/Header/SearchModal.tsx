@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useRef, useState, MouseEvent, ChangeEvent } from 'react';
 import { createPortal } from 'react-dom';
 import StopAreaList from './SearchResult/StopAreaList';
 
@@ -12,14 +12,14 @@ const SearchModal = ({ onClose }: ISearchModal) => {
   const [search, setSearch] = useState('');
 
   const handleClose = useCallback(
-    (e: React.MouseEvent<HTMLElement>) => {
+    (e: MouseEvent<HTMLElement>) => {
       onClose(ref.current !== e.target);
     },
     [onClose]
   );
 
   const handleSearch = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => setSearch(e.target.value),
+    (e: ChangeEvent<HTMLInputElement>) => setSearch(e.target.value),
     []
   );
 
