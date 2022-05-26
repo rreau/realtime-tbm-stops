@@ -3,10 +3,10 @@ import { useCallback } from 'react';
 import MenuBookmarks from './MenuBookmarks';
 
 interface IMenuContainer {
-  onMouseLeave: () => void
+  onMouseLeave: () => void;
 }
 
-const MenuContainer = ({onMouseLeave}: IMenuContainer) => {
+const MenuContainer = ({ onMouseLeave }: IMenuContainer) => {
   const [toggleBookmark, toggle] = useToggle(false);
 
   const handleBookmarks = useCallback(() => toggle(), [toggle]);
