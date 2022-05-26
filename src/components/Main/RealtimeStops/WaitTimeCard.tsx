@@ -67,22 +67,26 @@ const WaitTimeCard = ({ line, destination, id, stopName }: IStopData) => {
           <i className='fa-solid fa-xmark fa-2x text-red-700'></i>
         </button>
       </div>
-      <WaitTimeTable
-        key={line + destination}
-        line={line}
-        destination={destination}
-        stopName={stopName}
-      >
-        {dataSorted.map((e: IElement) => (
-          <WaitTimeRow
-            key={e.waittime}
-            destination={e.destination}
-            waittime={e.waittime}
-            realtime={e.realtime}
-            lastUpdate={e.lastUpdateVehicule}
-          />
-        ))}
-      </WaitTimeTable>
+      {dataSorted.length === 0 ? (
+        <span className='m-5'>Aucun passage prévu pour <br /> l&apos;arrêt {stopName} - {line} <br /> vers {destination}</span>
+      ) : (
+        <WaitTimeTable
+          key={line + destination}
+          line={line}
+          destination={destination}
+          stopName={stopName}
+        >
+          {dataSorted.map((e: IElement) => (
+            <WaitTimeRow
+              key={e.waittime}
+              destination={e.destination}
+              waittime={e.waittime}
+              realtime={e.realtime}
+              lastUpdate={e.lastUpdateVehicule}
+            />
+          ))}
+        </WaitTimeTable>
+      )}
     </div>
   );
 };
