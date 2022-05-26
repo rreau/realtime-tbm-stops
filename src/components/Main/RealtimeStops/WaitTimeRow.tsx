@@ -8,12 +8,15 @@ interface IWaitTimeRow {
   lastUpdate: string;
 }
 
+// Updates are allowed with less than 20 minutes
+const LAST_UPDATE = 20 * 60 * 1000;
+
 const WaitTimeRow = ({ destination, waittime, realtime, lastUpdate }: IWaitTimeRow) => {
   const timestampLastUpdate = Date.parse(lastUpdate);
   const timestampNow = Date.now();
   const diffTimestamp = timestampNow - timestampLastUpdate;
-  // Dernier mis a jour (max 20 min)
-  if (realtime && diffTimestamp < 20 * 60 * 1000) {
+
+  if (realtime && diffTimestamp < LAST_UPDATE) {
     const diffSecond = Math.floor(diffTimestamp / 1000);
     const seconds = Math.max(0, hmsToSeconds(waittime) - diffSecond);
     waittime = secondsToHms(seconds);
