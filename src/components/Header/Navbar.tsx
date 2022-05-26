@@ -11,13 +11,13 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className='flex flex-row justify-between items-center border-b-2 border-gray-300 mx-2'>
+      <nav className='flex flex-row justify-between items-center border-b-2 border-gray-300 mx-2 text-sm '>
         <button className='m-5' onClick={handleMenu}>
           <i className='fa-solid fa-bars fa-2x' />
         </button>
         {isVisibleMenu && <MenuContainer />}
-        <i className='fa-solid fa-angles-right fa-2x m-2' />
-        BIP BIP
+        <i className='fa-solid fa-hourglass fa-2x mr-3'></i>
+        REALTIME <br /> STOP <br /> BORDEAUX
         <div className='relative flex-auto mx-8 flex items-center'>
           <button
             className='w-full h-10 text-left drop-shadow-md input-primary'

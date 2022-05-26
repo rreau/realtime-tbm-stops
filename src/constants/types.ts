@@ -21,3 +21,10 @@ export interface IRawElement {
 export interface IformatRealtimeInfo {
   destinations: { [keys: string]: Array<IRawElement> };
 }
+
+export interface IStopData {
+  line: string;
+  destination: string;
+  id: string;
+  stopName: string;
+}

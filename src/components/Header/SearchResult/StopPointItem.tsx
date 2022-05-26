@@ -3,13 +3,20 @@ import { PosItem } from '@constants/enum';
 import { StopPointContext } from '@contexts/StopPointListener';
 
 interface IStopPointItem {
+  stopName: string;
   transport: string;
   destination: string;
   idSchedule: string;
   itemPosition: PosItem;
 }
 
-const StopPointItem = ({ transport, destination, idSchedule, itemPosition }: IStopPointItem) => {
+const StopPointItem = ({
+  stopName,
+  transport,
+  destination,
+  idSchedule,
+  itemPosition,
+}: IStopPointItem) => {
   const stopPointTheme = useContext(StopPointContext);
 
   let css =
@@ -25,9 +32,10 @@ const StopPointItem = ({ transport, destination, idSchedule, itemPosition }: ISt
       const id = target.dataset.id as string;
       const line = target.dataset.line as string;
       const destination = target.dataset.destination as string;
+      const stopName = target.dataset.stopname as string;
       stopPointTheme?.setStopPoint((sp) => [
         ...sp,
-        { id: id, line: line, destination: destination },
+        { id: id, line: line, destination: destination, stopName: stopName },
       ]);
     },
     [stopPointTheme]
@@ -36,6 +44,7 @@ const StopPointItem = ({ transport, destination, idSchedule, itemPosition }: ISt
   return (
     <button
       key={transport + destination}
+      data-stopname={stopName}
       data-id={idSchedule}
       data-line={transport}
       data-destination={destination}

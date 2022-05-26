@@ -1,5 +1,5 @@
 import { useCallback, useContext, useState } from 'react';
-import { IformatRealtimeInfo } from '@constants/types';
+import { IformatRealtimeInfo, IStopData } from '@constants/types';
 import useAutoFetchJson from '@hooks/useAutoFetchJson';
 import { hmsToSeconds } from '@utils/convertTime';
 import formatRealtimeInfo from '@utils/formatRealtimeInfo';
@@ -8,12 +8,6 @@ import WaitTimeRow from './WaitTimeRow';
 import WaitTimeTable from './WaitTimeTable';
 import Loading from '@components/Loading';
 import { addBookmarksItem, checkItem, delBookmarksItem } from '@utils/bookmarks';
-
-interface IWaitTimeCard {
-  line: string;
-  destination: string;
-  id: string;
-}
 
 interface IElement {
   waittime: string;
@@ -24,10 +18,10 @@ interface IElement {
 
 const STOP_SCHEDULE_URL = 'https://ws.infotbm.com/ws/1.0/get-realtime-pass/';
 
-const WaitTimeCard = ({ line, destination, id }: IWaitTimeCard) => {
+const WaitTimeCard = ({ line, destination, id, stopName }: IStopData) => {
   const [rawData, isLoading] = useAutoFetchJson(STOP_SCHEDULE_URL + id, 30);
   const [bookmark, setBookmark] = useState<boolean>(
-    checkItem({ line: line, destination: destination, id: id })
+    checkItem({ line: line, destination: destination, id: id, stopName: stopName })
   );
   const stopPointTheme = useContext(StopPointContext);
 
@@ -37,20 +31,21 @@ const WaitTimeCard = ({ line, destination, id }: IWaitTimeCard) => {
         (e) =>
           e.id.localeCompare(id) ||
           e.line.localeCompare(line) ||
-          e.destination.localeCompare(destination)
+          e.destination.localeCompare(destination) ||
+          e.stopName.localeCompare(stopName)
       )
     );
-  }, [stopPointTheme, destination, line, id]);
+  }, [stopPointTheme, destination, line, id, stopName]);
 
   const handleBookmark = useCallback(
     () =>
       setBookmark((b) => {
         const newValue = !b;
-        const data = { line: line, destination: destination, id: id };
+        const data = { line: line, destination: destination, id: id, stopName: stopName };
         newValue ? addBookmarksItem(data) : delBookmarksItem(data);
         return newValue;
       }),
-    [destination, id, line]
+    [destination, id, line, stopName]
   );
 
   if (isLoading) return <Loading />;
@@ -72,7 +67,12 @@ const WaitTimeCard = ({ line, destination, id }: IWaitTimeCard) => {
           <i className='fa-solid fa-xmark fa-2x text-red-700'></i>
         </button>
       </div>
-      <WaitTimeTable key={line + destination} line={line} destination={destination}>
+      <WaitTimeTable
+        key={line + destination}
+        line={line}
+        destination={destination}
+        stopName={stopName}
+      >
         {dataSorted.map((e: IElement) => (
           <WaitTimeRow
             key={e.waittime}

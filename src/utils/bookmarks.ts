@@ -1,13 +1,8 @@
-interface IData {
-  line: string;
-  destination: string;
-  id: string;
-  stopName: string;
-}
+import { IStopData } from '@constants/types';
 
 const KEY = 'bookmarks';
 
-const setBookmarks = (data: IData[]) => {
+const setBookmarks = (data: IStopData[]) => {
   localStorage.setItem(KEY, JSON.stringify(data));
 };
 
@@ -17,16 +12,16 @@ export const getBookmarks = () => {
   return JSON.parse(cookie);
 };
 
-export const addBookmarksItem = (data: IData) => {
+export const addBookmarksItem = (data: IStopData) => {
   const bookmarks = getBookmarks();
   const newBookmarks = [...bookmarks, data];
   setBookmarks(newBookmarks);
 };
 
-export const delBookmarksItem = (data: IData) => {
+export const delBookmarksItem = (data: IStopData) => {
   const bookmarks = getBookmarks();
   const newBookmarks = bookmarks.filter(
-    (e: IData) =>
+    (e: IStopData) =>
       e.id.localeCompare(data.id) ||
       e.line.localeCompare(data.line) ||
       e.destination.localeCompare(data.destination) ||
@@ -37,10 +32,10 @@ export const delBookmarksItem = (data: IData) => {
   else localStorage.removeItem(KEY);
 };
 
-export const checkItem = (data: IData) => {
+export const checkItem = (data: IStopData) => {
   const bookmarks = getBookmarks();
   return bookmarks.some(
-    (e: IData) =>
+    (e: IStopData) =>
       !(
         e.id.localeCompare(data.id) ||
         e.line.localeCompare(data.line) ||

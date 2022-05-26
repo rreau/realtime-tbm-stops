@@ -48,6 +48,7 @@ const StopPointList = ({ id }: IStopPointList) => {
                     return (
                       <StopPointItem
                         key={e.transport + e.destination}
+                        stopName={key}
                         transport={e.transport}
                         destination={e.destination}
                         idSchedule={e.idSchedule}

@@ -1,14 +1,9 @@
+import { IStopData } from '@constants/types';
 import { createContext, useMemo, useState } from 'react';
 
-interface IStopPointElement {
-  destination: string;
-  id: string;
-  line: string;
-}
-
 interface IStopPointContext {
-  stopPoint: IStopPointElement[];
-  setStopPoint: React.Dispatch<React.SetStateAction<IStopPointElement[]>>;
+  stopPoint: IStopData[];
+  setStopPoint: React.Dispatch<React.SetStateAction<IStopData[]>>;
 }
 
 interface IStopPointListener {
@@ -18,7 +13,7 @@ interface IStopPointListener {
 export const StopPointContext = createContext<IStopPointContext | null>(null);
 
 export const StopPointListener = ({ children }: IStopPointListener) => {
-  const [stopPoint, setStopPoint] = useState<IStopPointElement[]>([]);
+  const [stopPoint, setStopPoint] = useState<IStopData[]>([]);
 
   const stopPointData = useMemo(
     () => ({
