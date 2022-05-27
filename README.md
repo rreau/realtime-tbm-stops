@@ -3,8 +3,6 @@ Get every passage of your favorite lines on every stop of the TBM network (Trans
 
 Margin of error up to 20 seconds on real time.
 
-[Live here](https://monarret-bx.onrender.com/)
-
 ## Quick Start
 
 Install dependencies using **yarn**
